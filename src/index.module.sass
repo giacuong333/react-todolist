@@ -11,15 +11,22 @@ html
 .main
       $dimension: 500px
       width: $dimension
-      min-height: $dimension
+      height: $dimension
       background-color: #EEE8AA
       border-radius: 6px
       padding: 12px
+      overflow-y: auto
+
+      &::-webkit-scrollbar
+            display: none
 
 h2
       font:
             weight: 900
             size: 30px
+
+ul
+      list-style-type: none
 
 .primaryBtn
       outline: 0
@@ -44,11 +51,25 @@ h2
             background-color: #ccc
             color: #000
 
+.clearBtn
+      @extend .primaryBtn
+      background-color: red
+      color: #fff
+      float: left
+      opacity: 0.8
+
+      &:hover
+            opacity: 1
+            background-color: red
+
 .formGroup
       width: 100%
       display: flex
       justify-content: flex-start
       align-items: center
+      margin: 4px
+      position: sticky
+      top: 0
 
 input
       outline: none
@@ -57,13 +78,17 @@ input
       border-radius: 6px
       flex: 1
 
+      &:focus
+            border-color: #333
+
 .listItems
       background-color: #ccc
       display: flex
       justify-content: space-between
       align-items: center
       border-radius: 6px
-      margin: 4px 0
+      margin: 4px
+      clear: both
 
       p
             margin-left: 8px

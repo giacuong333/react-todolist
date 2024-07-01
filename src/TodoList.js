@@ -45,6 +45,11 @@ function TodoList() {
     setEditIndex(index);
     setIsEditing(true);
     setInput(tasks[index]);
+    inputRef.current.focus();
+  }
+
+  function handleClear() {
+    setTasks([]);
   }
 
   return (
@@ -58,23 +63,34 @@ function TodoList() {
         </button>
       </div>
 
-      <ul>
-        {tasks.map((task, index) => {
-          return (
-            <li key={index} className={styles.listItems}>
-              <p>{task}</p>
-              <div className="action">
-                <button type="button" className={styles.primaryBtn} onClick={() => handleDelete(index)}>
-                  Delete
-                </button>
-                <button type="button" className={styles.primaryBtn} onClick={() => handleEdit(index)}>
-                  Edit
-                </button>
-              </div>
+      {tasks.length === 0 ? (
+        <p>Todo list is empty!</p>
+      ) : (
+        <ul>
+          {tasks.length !== 0 && (
+            <li>
+              <button type="button" className={styles.clearBtn} onClick={handleClear}>
+                Clear
+              </button>
             </li>
-          );
-        })}
-      </ul>
+          )}
+          {tasks.map((task, index) => {
+            return (
+              <li key={index} className={styles.listItems}>
+                <p>{task}</p>
+                <div className="action">
+                  <button type="button" className={styles.primaryBtn} onClick={() => handleDelete(index)}>
+                    Delete
+                  </button>
+                  <button type="button" className={styles.primaryBtn} onClick={() => handleEdit(index)}>
+                    Edit
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }
