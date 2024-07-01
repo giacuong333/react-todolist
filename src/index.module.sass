@@ -1,0 +1,69 @@
+*
+      padding: 0
+      margin: 0
+      box-sizing: border-box
+
+html
+      font:
+            size: 14px
+            family: monospace
+
+.main
+      $dimension: 500px
+      width: $dimension
+      min-height: $dimension
+      background-color: #EEE8AA
+      border-radius: 6px
+      padding: 12px
+
+h2
+      font:
+            weight: 900
+            size: 30px
+
+.primaryBtn
+      outline: 0
+      border: 0
+      text-decoration: none
+      font-size: 14px
+      cursor: pointer
+      padding: 8px 10px
+      border-radius: 6px
+      margin: 4px
+      background-color: #e1e1e1
+
+      &:hover
+            background-color: #0866ff
+            color: #fff
+
+.secondaryBtn
+      @extend .primaryBtn
+      background-color: #333
+      color: #fff
+      &:hover
+            background-color: #ccc
+            color: #000
+
+.formGroup
+      width: 100%
+      display: flex
+      justify-content: flex-start
+      align-items: center
+
+input
+      outline: none
+      border: 1px solid #ccc
+      padding: 8px 10px
+      border-radius: 6px
+      flex: 1
+
+.listItems
+      background-color: #ccc
+      display: flex
+      justify-content: space-between
+      align-items: center
+      border-radius: 6px
+      margin: 4px 0
+
+      p
+            margin-left: 8px
